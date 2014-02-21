@@ -1,0 +1,6 @@
+*.pyc
+.*swp
+.DS_Store
+temp/*
+app/config.py
+app/app.db

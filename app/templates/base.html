@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% if title %}
+<title>{{title}} - Sevenoaks Bin Collections</title>
+{% else %}
+<title>Sevenoaks Bin Collections</title>
+{% endif %}
+<link href="/static/css/main.css" rel="stylesheet" media="screen" />
+<script src="/static/js/main.js"></script>
+<script src="/static/js/jquery-1.10.2.js"></script>
+<script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
+</head>
+<body>
+
+<header>
+	<h2><a href="/">Sevenoaks Bin Collections</a></h2>
+</header>
+
+<div id="content">
+	{% block content %}{% endblock %}
+</div>
+
+<footer id="site-information">
+
+<p>Some text</p>
+
+</footer>
+
+</body>
+</html>

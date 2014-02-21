@@ -1,0 +1,253 @@
+/* =Reset
+-------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+caption,
+th,
+td {
+	font-weight: normal;
+	text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+html {
+	overflow-y: scroll;
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+a:focus {
+	outline: thin dotted;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+	display: block;
+}
+audio,
+canvas,
+video {
+	display: inline-block;
+}
+audio:not([controls]) {
+	display: none;
+}
+del {
+	color: #333;
+}
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin: 24px;
+	margin-bottom: 1.714285714rem;
+}
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+small {
+	font-size: smaller;
+}
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+/* Clearing floats */
+.clear:after,
+.wrapper:after,
+.format-status .entry-header:after {
+	clear: both;
+}
+.clear:before,
+.clear:after,
+.wrapper:before,
+.wrapper:after,
+.format-status .entry-header:before,
+.format-status .entry-header:after {
+	display: table;
+	content: "";
+}
+
+
+/* =Typography
+-------------------------------------------------------------- */
+
+body {
+	color: #434343;
+	font-family: "Helvetica Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 62.5%;
+}
+
+/* Headings */
+
+h1,h2 { font-weight: normal; font-family: "Coustard", Georgia, Times, serif; text-align: center;}
+
+h3,h4,h5,h6 { font-weight: bold; }
+
+h1 { color: #393C46; font-size: 3.6em; line-height: 1.1em; margin-bottom: 0.5em;}
+h2 { color: #393C46; font-size: 2.4em; margin-bottom: 1em; }
+h3 { color: #393C46; font-size: 2em; line-height: 1; margin-bottom: 0.5em; margin-top: 0.5em }
+h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
+
+/* Text elements */
+
+p, li       { font-size: 1.8em; line-height: 1.3; margin: 0 0 0.75em; }
+p.last      { margin-bottom: 0; }
+
+ul, ol      { margin: 0 0 1.5em 1.5em; }
+ul          { list-style-type: disc; }
+ol          { list-style-type: decimal; }
+
+/* Default link styles */
+
+a:link,
+a:visited { background: none; color: #3892E3; text-decoration: underline; }
+
+a:hover,
+a:active,
+a:focus { color: #3892E3; text-decoration: none }
+
+
+/* =Forms
+-------------------------------------------------------------- */
+
+input[type=text] {
+	font-size: 1.8em;
+	font-family: "Helvetica Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding: 0.2em;
+}
+
+input[type=submit] {
+	font-size: 1.8em;
+	padding: 0.2em;
+	text-transform: uppercase;
+}
+
+/* =Structure
+-------------------------------------------------------------- */
+
+header { background: #00A98C; margin-bottom: 4.8em;}
+
+header h2 { font-size: 2.4em; margin: 0; padding: 1em 0; text-align: left; text-shadow: 2px 2px #005D4D; margin: 0 auto; max-width: 744px; }
+
+header h2 a:link, header h2 a:visited { background: url('/static/img/bin_small.png') no-repeat 0px 3px; color: #fff; padding-left: 32px; text-decoration: none; }
+
+div#content { margin: 0 auto; max-width: 744px; }
+
+div#further-information { margin: 7.2em 0; overflow: hidden;}
+
+div#further-information .section { float: left; width: 48%; }
+
+div#further-information .first { margin-right: 4%; }
+
+footer#site-information { background: #152E29; clear: both; padding: 7.2em 0; }
+
+
+/* =Homepage
+-------------------------------------------------------------- */
+
+div#primary-search { background: #FAFAFA; border-bottom: 5px solid #C6C6C6; margin-top: -1.2em;}
+
+div#secondary-search { margin-bottom: 4.8em; }
+
+div.search { padding: 4.2em 1.8em; text-align: center }
+
+.search label { display: block; font-family: "Coustard", Georgia, Times, Serif; font-size: 2.4em; margin-bottom: 1em;}
+
+.search input[type=text] { margin: 0; min-width: 10em; padding: 0.75em; width: 58%; }
+
+.search input[type=submit] { background: #D28801; border: 0; color: #fff; font-size: 2.4em; font-weight: none; padding: 0.33em 0; width: 2em;}
+
+
+/* =Search
+-------------------------------------------------------------- */
+
+ul#roads { border-bottom: 1px solid #e8e8e8; list-style: none; margin-left: 0; }
+
+ul#roads li { border-top: 1px solid #E8E8E8; margin: 0; padding: 0.75em 0.5em; }
+
+ul#roads li a:link, ul#roads li a:visited { color: #434343; text-decoration: none; }
+
+ul#roads li a span.area { color: #979797; margin-left: 1em; }
+
+ul#roads li:hover { background: #FAFAFA; }
+
+
+/* =Collections
+-------------------------------------------------------------- */
+
+div#road-name { background: #FAFAFA; border-bottom: 5px solid #C6C6C6; margin: -1.2em 0 3.6em; padding: 2.4em 1.8em ; text-align: center; }
+
+#road-name h1 { margin: 0.33em 0 0.5em; }
+
+#road-name p { margin: 0; }
+
+div.collection { margin: 0 0 1.8em; min-height: 15em; overflow: hidden; padding: 0 0 0 18.6em; position: relative; }
+
+ul.links { list-style: none; margin: 0; }
+
+ul.links li { margin: 0 0 0.25em; }
+
+div.collection h3 { font-size: 1.8em; font-weight: normal; margin: 1em 0 0; }
+
+div.collection p.date { font-size: 2em; font-weight: bold; margin: 0.25em 0; }
+
+div.collection p.frequency { color: #979797; }
+
+div.collection .image-placeholder { background: #FFDA97; height: 142px; position: absolute; top: 0px; left: 0px; width: 168px; }
