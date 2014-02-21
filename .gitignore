@@ -1,6 +1,6 @@
 *.pyc
 .*swp
 .DS_Store
-temp/*
+tmp/sevenoaks.csv
 app/config.py
 app/app.db
