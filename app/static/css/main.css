@@ -136,13 +136,13 @@ body {
 
 /* Headings */
 
-h1,h2 { font-weight: normal; font-family: "Coustard", Georgia, Times, serif; text-align: center;}
+h1,h2 {  color: #606060; font-weight: normal; font-family: "Copse", Georgia, Times, serif; text-align: center;}
 
 h3,h4,h5,h6 { font-weight: bold; }
 
-h1 { color: #393C46; font-size: 3.6em; line-height: 1.1em; margin-bottom: 0.5em;}
-h2 { color: #393C46; font-size: 2.4em; margin-bottom: 1em; }
-h3 { color: #393C46; font-size: 2em; line-height: 1; margin-bottom: 0.5em; margin-top: 0.5em }
+h1 { color: #606060; font-size: 3.6em; line-height: 1.1em; margin-bottom: 0.5em;}
+h2 { color: #606060; font-size: 2.4em; margin-bottom: 1em; }
+h3 { color: #000; font-size: 1.8em; line-height: 1; margin-bottom: 0.5em; margin-top: 0.5em }
 h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
 
 /* Text elements */
@@ -184,35 +184,39 @@ input[type=submit] {
 
 header { background: #00A98C; margin-bottom: 4.8em;}
 
-header h2 { font-size: 2.4em; margin: 0; padding: 1em 0; text-align: left; text-shadow: 2px 2px #005D4D; margin: 0 auto; max-width: 744px; }
+header h2 { font-size: 2.6em; margin: 0; padding: 1.25em 0; text-shadow: 2px 2px #006D5A; text-transform: uppercase; margin: 0 auto; max-width: 744px; }
 
-header h2 a:link, header h2 a:visited { background: url('/static/img/bin_small.png') no-repeat 0px 3px; color: #fff; padding-left: 32px; text-decoration: none; }
+header h2 a:link, header h2 a:visited { background: url('/static/img/bin_logo.png') no-repeat left center; color: #fff; padding: 0.75em 0 0.75em 64px; text-decoration: none; }
 
-div#content { margin: 0 auto; max-width: 744px; }
+div.content { margin: 0 auto; max-width: 960px; overflow: hidden; }
 
-div#further-information { margin: 7.2em 0; overflow: hidden;}
+div#further-information { background: #f3f1eb; clear: both; margin: 3.6em 0 0; overflow: hidden; padding: 4.8em 0;}
 
-div#further-information .section { float: left; width: 48%; }
+div#further-information .section { float: left; margin-right: 3%; width: 31.333%; }
 
-div#further-information .first { margin-right: 4%; }
+div#further-information .last { margin-right: 0; }
 
 footer#site-information { background: #152E29; clear: both; padding: 7.2em 0; }
+
+footer p { color: #fff; }
 
 
 /* =Homepage
 -------------------------------------------------------------- */
 
-div#primary-search { background: #FAFAFA; border-bottom: 5px solid #C6C6C6; margin-top: -1.2em;}
+div#primary-search { margin: -1.8em auto 6em auto; max-width: 600px;}
 
 div#secondary-search { margin-bottom: 4.8em; }
 
 div.search { padding: 4.2em 1.8em; text-align: center }
 
-.search label { display: block; font-family: "Coustard", Georgia, Times, Serif; font-size: 2.4em; margin-bottom: 1em;}
+.search label { color: #606060; display: block; font-family: "Copse", Georgia, Times, Serif; font-size: 2.4em; margin-bottom: 1em;}
 
-.search input[type=text] { margin: 0; min-width: 10em; padding: 0.75em; width: 58%; }
+.search input[type=text] { border: 1px solid #B7B7B7; margin: 0; padding: 0.75em; width: 75%; }
 
-.search input[type=submit] { background: #D28801; border: 0; color: #fff; font-size: 2.4em; font-weight: none; padding: 0.33em 0; width: 2em;}
+.search input[type=submit] { background: #F5A623; border: 0; color: #fff; font-family: helvetica, arial, sans-serif; font-size: 1.8em; font-weight: bold; margin-left: -0.2em; padding: 0.82em;}
+
+.search small { display: block; font-size: 1.2em; margin: 2em 0 0; }
 
 
 /* =Search
@@ -222,9 +226,9 @@ ul#roads { border-bottom: 1px solid #e8e8e8; list-style: none; margin-left: 0; }
 
 ul#roads li { border-top: 1px solid #E8E8E8; margin: 0; padding: 0.75em 0.5em; }
 
-ul#roads li a:link, ul#roads li a:visited { color: #434343; text-decoration: none; }
+ul#roads li a:link, ul#roads li a:visited {  }
 
-ul#roads li a span.area { color: #979797; margin-left: 1em; }
+ul#roads li span.area a { color: #979797; margin-left: 1em; text-decoration: none;}
 
 ul#roads li:hover { background: #FAFAFA; }
 
@@ -232,11 +236,15 @@ ul#roads li:hover { background: #FAFAFA; }
 /* =Collections
 -------------------------------------------------------------- */
 
-div#road-name { background: #FAFAFA; border-bottom: 5px solid #C6C6C6; margin: -1.2em 0 3.6em; padding: 2.4em 1.8em ; text-align: center; }
+div#road-name { float: left; margin-right: 5%; padding-top: 5em; width: 35%; }
 
-#road-name h1 { margin: 0.33em 0 0.5em; }
+#road-name h1 { color: #000; font-size: 3.6em; line-height: 1.2; margin: 0.4em 0 1em; text-align: left; }
 
-#road-name p { margin: 0; }
+#road-name .area { color: #606060; display: block; margin-top: 0.25em;}
+
+#road-name p { font-size: 2.4em; margin: 0 0 0.5em; text-align: left; }
+
+div#collections { float: left; width: 60%; }
 
 div.collection { margin: 0 0 1.8em; min-height: 15em; overflow: hidden; padding: 0 0 0 18.6em; position: relative; }
 
@@ -244,10 +252,12 @@ ul.links { list-style: none; margin: 0; }
 
 ul.links li { margin: 0 0 0.25em; }
 
-div.collection h3 { font-size: 1.8em; font-weight: normal; margin: 1em 0 0; }
+.collection h3 { font-size: 2em; margin: 1em 0 0.5em; }
 
-div.collection p.date { font-size: 2em; font-weight: bold; margin: 0.25em 0; }
+.collection p.date { margin: 0.25em 0; }
 
-div.collection p.frequency { color: #979797; }
+.collection p.frequency { color: #979797; }
 
-div.collection .image-placeholder { background: #FFDA97; height: 142px; position: absolute; top: 0px; left: 0px; width: 168px; }
+.collection .image-placeholder { background: #F3F1EB; height: 142px; position: absolute; top: 0px; left: 0px; width: 168px; }
+
+.collection .image-placeholder img { margin: 3em 0 0 5em; }

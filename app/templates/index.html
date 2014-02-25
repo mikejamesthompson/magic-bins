@@ -1,27 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div id="primary-search" class="search">
+<div id="primary-search" class="search content">
 	<form action="/search" method="post" name="search">
 
 	<label for="road">Start by typing in your road name</label>
 	{{form.hidden_tag()}}
-	{{form.road()}}
+	{{form.road(placeholder="e.g. London Road")}}
 	<input type="submit" value="GO" />
-
+	<small><a href="#">Can't find your road? Let us know.</a></small>
 	</form>
 </div>
 
 <div id="further-information">
 
-	<div class="section first">
-		<h3>What is this site?</h3>
-		<p>This website allows residents of Sevenoaks District Council to find out when their next bin collection is going to be, even over public holidays when things get a bit weird. It was created because the current ways of finding out are a bit limited.</p>
-	</div>
+	<div class="content">
 
-	<div class="section">
-		<h3>How does it work?</h3>
-		<p>This site is based on data extracted from this file on Sevenoaks DC's website and from information on this page of the site. As far as I know, it is correct, but there may be areas. Get in touch if you spot any and remember that Sevenoaks DC are the final arbiters of this information.</p>
+		<div class="section">
+			<h3>What is this site?</h3>
+			<p>This website allows residents of Sevenoaks District Council to find out when their next bin collection is going to be, even over public holidays when things get a bit weird. It was created because the current ways of finding out are a bit limited.</p>
+		</div>
+
+		<div class="section">
+			<h3>How does it work?</h3>
+			<p>This site is based on data extracted from this file on Sevenoaks DC's website and from information on this page of the site. As far as I know, it is correct, but there may be areas. Get in touch if you spot any and remember that Sevenoaks DC are the final arbiters of this information.</p>
+		</div>
+
+		<div class="section last">
+			<h3>How does it work?</h3>
+			<p>This site is based on data extracted from this file on Sevenoaks DC's website and from information on this page of the site. As far as I know, it is correct, but there may be areas. Get in touch if you spot any and remember that Sevenoaks DC are the final arbiters of this information.</p>
+		</div>
+
 	</div>
 
 </div>

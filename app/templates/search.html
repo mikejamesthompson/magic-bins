@@ -3,21 +3,25 @@
 
 <h2>Select your road from the list below</h2>
 
+<div class="content">
 {% if roads %}
     <ul id="roads">
 	{% for road in roads %}
-		<li><a href="/collection-times/{{road.id}}">{{road.name}} <span class="area">{{road.area}}</span></a></li>
+		<li><a href="/collection-times/{{road.id}}">{{road.name}}</a> <span class="area"><a href="/collection-times/{{road.id}}">{{road.area}}</a></span></li>
 	{% endfor %}
 	</ul>
 {% endif %}
+</div>
 
 <div id="secondary-search" class="search">
-	<form action="/search" method="post" name="search">
-	<h2>Or search again</h2>
-	{{form.hidden_tag()}}
-	{{form.road()}}
-	<input type="submit" value="GO" />
-	</form>
+	<div class="content">
+		<form action="/search" method="post" name="search">
+		<h2>Or search again</h2>
+		{{form.hidden_tag()}}
+		{{form.road()}}
+		<input type="submit" value="GO" />
+		</form>
+	</div>
 </div>
 
 {% endblock %}

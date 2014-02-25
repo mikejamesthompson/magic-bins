@@ -41,13 +41,13 @@ def collections(road_id):
 	collections = location.collections
 
 	cs = []
-	frequencies = {'7':'Weekly','14':'Fortnightly'}
+	frequencies = {7:'Weekly',14:'Fortnightly'}
 
 	for collection in collections:
 
 		cs.append({
 			'name' : collection.type,
-			'frequency' : 'Weekly',
+			'frequency' : frequencies[collection.frequency],
 			'next' : helpers.next_collection(datetime.today(), collection.reference_date, collection.frequency)
 			})
 
