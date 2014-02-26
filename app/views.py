@@ -3,7 +3,7 @@ from app import app
 from app.forms import SearchForm
 from app.models import Collection, Location
 from app import helpers
-
+from webhelpers.text import urlify
 from datetime import datetime
 
 
@@ -34,10 +34,10 @@ def collections_index():
 
 
 # Page for an individual road
-@app.route('/collection-times/<int:road_id>')
-def collections(road_id):
+@app.route('/collection-times/<road>')
+def collections(road):
 	
-	location = Location.query.get(road_id)
+	location = Location.query.filter_by(url_name = urlify(road)).first()
 	collections = location.collections
 
 	cs = []

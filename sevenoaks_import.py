@@ -1,6 +1,7 @@
 import app
 from app import db, models, helpers
 from app.models import Collection, location_collections
+from webhelpers.text import urlify
 
 from datetime import datetime
 import hashlib
@@ -11,59 +12,59 @@ class SevenoaksImporter:
     def __init__(self, filename):
         self.source = filename
 
-    types = {2:"Household Waste", 3:"Recycling", 4:"Garden Waste"}
+    types = { 2 : "Household Waste", 3 : "Recycling", 4 : "Garden Waste"}
 
     collections = [{
-        "name":"Household Waste",
-        "type":"Household Waste", 
-        "frequency":7,
-        "reference_dates":{
-            'Monday':datetime(2014,02,10),
-            'Tuesday':datetime(2014,02,11),
-            'Wednesday':datetime(2014,02,12),
-            'Thursday':datetime(2014,02,13),
-            'Friday':datetime(2014,02,14),
-            'Saturday':datetime(2014,02,15),
-            'Sunday':datetime(2014,02,16)}
+        "name" : "Household Waste",
+        "type" : "Household Waste", 
+        "frequency" : 7,
+        "reference_dates" : {
+            'Monday' : datetime(2014,02,10),
+            'Tuesday' : datetime(2014,02,11),
+            'Wednesday' : datetime(2014,02,12),
+            'Thursday' : datetime(2014,02,13),
+            'Friday' : datetime(2014,02,14),
+            'Saturday' : datetime(2014,02,15),
+            'Sunday' : datetime(2014,02,16)}
         },
         {
-        "name":"Recycling",
-        "type":"Recycling", 
-        "frequency":7,
-        "reference_dates":{
-            'Monday':datetime(2014,02,10),
-            'Tuesday':datetime(2014,02,11),
-            'Wednesday':datetime(2014,02,12),
-            'Thursday':datetime(2014,02,13),
-            'Friday':datetime(2014,02,14),
-            'Saturday':datetime(2014,02,15),
-            'Sunday':datetime(2014,02,16)}
+        "name" : "Recycling",
+        "type" : "Recycling", 
+        "frequency" : 7,
+        "reference_dates" : {
+            'Monday' : datetime(2014,02,10),
+            'Tuesday' : datetime(2014,02,11),
+            'Wednesday' : datetime(2014,02,12),
+            'Thursday' : datetime(2014,02,13),
+            'Friday' : datetime(2014,02,14),
+            'Saturday' : datetime(2014,02,15),
+            'Sunday' : datetime(2014,02,16)}
         },
         {
-        "name":"Garden Waste 1",
-        "type":"Garden Waste",
-        "frequency":14,
-        "reference_dates":{
-            'Monday':datetime(2014,02,03),
-            'Tuesday':datetime(2014,02,04),
-            'Wednesday':datetime(2014,02,05),
-            'Thursday':datetime(2014,02,06),
-            'Friday':datetime(2014,02,07),
-            'Saturday':datetime(2014,02,8),
-            'Sunday':datetime(2014,02,9)}
+        "name" : "Garden Waste 1",
+        "type" : "Garden Waste",
+        "frequency" : 14,
+        "reference_dates" : {
+            'Monday' : datetime(2014,02,03),
+            'Tuesday' : datetime(2014,02,04),
+            'Wednesday' : datetime(2014,02,05),
+            'Thursday' : datetime(2014,02,06),
+            'Friday' : datetime(2014,02,07),
+            'Saturday' : datetime(2014,02,8),
+            'Sunday' : datetime(2014,02,9)}
         },
         {
-        "name":"Garden Waste 2",
-        "type":"Garden Waste",
-        "frequency":"14",
-        "reference_dates":{
-            'Monday':datetime(2014,02,10),
-            'Tuesday':datetime(2014,02,11),
-            'Wednesday':datetime(2014,02,12),
-            'Thursday':datetime(2014,02,13),
-            'Friday':datetime(2014,02,14),
-            'Saturday':datetime(2014,02,15),
-            'Sunday':datetime(2014,02,16)}
+        "name" : "Garden Waste 2",
+        "type" : "Garden Waste",
+        "frequency" : "14",
+        "reference_dates" : {
+            'Monday' : datetime(2014,02,10),
+            'Tuesday' : datetime(2014,02,11),
+            'Wednesday' : datetime(2014,02,12),
+            'Thursday' : datetime(2014,02,13),
+            'Friday' : datetime(2014,02,14),
+            'Saturday' : datetime(2014,02,15),
+            'Sunday' : datetime(2014,02,16)}
         }]
 
 
@@ -74,7 +75,8 @@ class SevenoaksImporter:
         for row in reader:
             location = models.Location(
                 name = row[0],
-                area = row[1]
+                area = row[1],
+                url_name = urlify(row[0]+" "+row[1])
                 )
             db.session.add(location)
             db.session.commit()
@@ -104,6 +106,7 @@ class SevenoaksImporter:
             db.session.commit()
         
         file.close()
+        
         return True
 
 
@@ -149,4 +152,3 @@ if __name__ == "__main__":
     importer = SevenoaksImporter('tmp/sevenoaks.csv')
     importer.createCollections()
     importer.importLocations()
-    

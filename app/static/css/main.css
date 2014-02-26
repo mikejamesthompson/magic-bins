@@ -182,11 +182,15 @@ input[type=submit] {
 /* =Structure
 -------------------------------------------------------------- */
 
-header { background: #00A98C; margin-bottom: 4.8em;}
+body { background: #152E29; }
+
+header { background: #00A98C;}
 
 header h2 { font-size: 2.6em; margin: 0; padding: 1.25em 0; text-shadow: 2px 2px #006D5A; text-transform: uppercase; margin: 0 auto; max-width: 744px; }
 
 header h2 a:link, header h2 a:visited { background: url('/static/img/bin_logo.png') no-repeat left center; color: #fff; padding: 0.75em 0 0.75em 64px; text-decoration: none; }
+
+div#content { background: #fff; padding-top: 4.8em; }
 
 div.content { margin: 0 auto; max-width: 960px; overflow: hidden; }
 
@@ -196,9 +200,13 @@ div#further-information .section { float: left; margin-right: 3%; width: 31.333%
 
 div#further-information .last { margin-right: 0; }
 
-footer#site-information { background: #152E29; clear: both; padding: 7.2em 0; }
+footer#site-information { background: #152E29; clear: both; padding: 4.8em 0; }
 
-footer p { color: #fff; }
+footer p { color: #fff; font-size: 1.4em; }
+
+footer p#the-real-thing { float: right; }
+
+footer p#site-links a { margin-right: 1em; }
 
 
 /* =Homepage

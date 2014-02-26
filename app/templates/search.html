@@ -7,7 +7,7 @@
 {% if roads %}
     <ul id="roads">
 	{% for road in roads %}
-		<li><a href="/collection-times/{{road.id}}">{{road.name}}</a> <span class="area"><a href="/collection-times/{{road.id}}">{{road.area}}</a></span></li>
+		<li><a href="/collection-times/{{road.url_name}}">{{road.name}}</a> <span class="area"><a href="/collection-times/{{road.id}}">{{road.area}}</a></span></li>
 	{% endfor %}
 	</ul>
 {% endif %}

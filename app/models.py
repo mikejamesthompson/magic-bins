@@ -23,9 +23,10 @@ class Location(db.Model):
 
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     name = db.Column(db.String(255), index = True)
-    area = db.Column(db.String(255), index = True)
-    collections = db.relationship('Collection', secondary=location_collections,
-        backref=db.backref('locations', lazy='dynamic'))
+    area = db.Column(db.String(255))
+    url_name = db.Column(db.String(255), index = True, unique = True)
+    collections = db.relationship('Collection', secondary = location_collections,
+        backref = db.backref('locations', lazy ='dynamic'))
 
     def __repr__(self):
         return '<Location %r>' % (self.name + ", " + self.area)
