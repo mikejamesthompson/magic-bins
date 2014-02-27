@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, request, redirect, url_for
 from app import app
 from app.forms import SearchForm
 from app.models import Collection, Location
@@ -53,3 +53,9 @@ def collections(road):
 
 
 	return render_template('collections.html', road=location, collections=cs)
+
+# Static pages
+@app.route('/about')
+@app.route('/contact')
+def static_page():
+	return render_template("static.html")
