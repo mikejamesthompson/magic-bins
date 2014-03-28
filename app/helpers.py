@@ -1,17 +1,10 @@
 import os
 import csv, codecs, cStringIO
-from datetime import datetime, time, timedelta
 
 # Date manipulation helpers
 
 def day_suffix(d):
     return 'th' if 11<=d<=13 else {1:'st',2:'nd',3:'rd'}.get(d%10, 'th')
-
-def next_collection(date, reference_date, frequency=7):
-    delta = date - reference_date
-    offset = timedelta(days=(frequency - (delta.days % frequency)))
-    next = date + offset
-    return next.strftime("%A, %e{S} %B %Y").replace('{S}', day_suffix(next.day))       
 
 
 # CSV / unicode helpers

@@ -1,35 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="content">
-
-	<div id="road-name">
-		<h1>
-			<small>Bin collections for</small>
-			{{road.name}}
-			<span class="area">{{road.area}}</span>
-		</h1>
-	</div>
-
-	<div id="collections">
-	{% for collection in collections %}
-
-		<div class="collection">
-			<h3>{{collection.name}}</h3>
-			<p class="date">{{collection.next}} {{collection.shift}}</p>
-			<p class="frequency">Collected {{collection.frequency}}</p>
-			<div class="image-placeholder">
-				<img src="/static/img/{{collection.name}}.png" />
-			</div>
-		</div>
-
-	{% endfor %}
-	</div>
-
+<div id="intro" class="content">
+	<h1>Check when your next bin collection is</h1>
+	<a href="/search" class="action">Start Now</a>
+	<small><a href="#">Or read more about this site first</a></small>
 </div>
 
 <div id="further-information">
+
 	<div class="content">
+
 		<div class="section">
 			<h3>Report a missed bin collection</h3>
 			<p>If your bin wasn't collected and it should have been, you can report it to Sevenoaks DC <a href="http://www.sevenoaks.gov.uk/contact-us">using the details on the contact us page</a> on their website.</p>
@@ -48,8 +29,9 @@
 				<li><a href="http://www.sevenoaks.gov.uk/services/housing/recycling-rubbish-and-waste/refuse,-recycling-and-garden-waste-general-information/bulky-waste-and-white-goods-collections">Bulky waste collections</a></li>
 			</ul>
 		</div>
-	</div>
-</div>
 
+	</div>
+
+</div>
 
 {% endblock %}

@@ -1,4 +1,5 @@
-from app import db
+from app import db, helpers
+from datetime import datetime, time, timedelta
 
 location_collections = db.Table('location_collections',
     db.Column('location_id', db.Integer, db.ForeignKey('location.id')),
@@ -18,6 +19,18 @@ class Collection(db.Model):
     def __repr__(self):
         return u'<Collection %r>' % (self.type + " every " + str(self.frequency) + " days, starting on: " + str(self.reference_date))
 
+    def next_collection(self, date, reference_date, frequency=7):
+        delta = date - reference_date
+        offset = timedelta(days=(frequency - (delta.days % frequency)))
+        next = date + offset
+
+        change = ScheduleChange.query.filter(
+                    date_from < next,
+                    date_to > next
+                    ).first()
+
+        return next.strftime("%A, %e{S} %B %Y").replace('{S}', helpers.day_suffix(next.day)), change
+
 
 class Location(db.Model):
 
@@ -29,4 +42,16 @@ class Location(db.Model):
         backref = db.backref('locations', lazy ='dynamic'))
 
     def __repr__(self):
-        return '<Location %r>' % (self.name + ", " + self.area)
+        return u'<Location %r>' % (self.name + ", " + self.area)
+
+
+class ScheduleChange(db.Model):
+
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    date_from = db.Column(db.DateTime(), index = True)
+    date_to = db.Column(db.DateTime(), index = True)
+    shift = db.Column(db.Integer())
+
+    def __repr__(self):
+        return u'<ScheduleChange %r>' % (self.shift + " days, between " + str(self.date_from) + " and " + str(self.date_from))
+

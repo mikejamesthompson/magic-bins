@@ -186,7 +186,7 @@ body { background: #152E29; }
 
 header { background: #00A98C;}
 
-header h2 { font-size: 2.6em; margin: 0; padding: 1.25em 0; text-shadow: 2px 2px #006D5A; text-transform: uppercase; margin: 0 auto; max-width: 744px; }
+header h2 { font-size: 2.6em; margin: 0; padding: 1.25em 0; text-shadow: 1px 1px #006D5A; text-transform: uppercase; margin: 0 auto; max-width: 744px; }
 
 header h2 a:link, header h2 a:visited { background: url('/static/img/bin_logo.png') no-repeat left center; color: #fff; padding: 0.75em 0 0.75em 64px; text-decoration: none; }
 
@@ -221,6 +221,15 @@ footer p#site-links a { margin-right: 1em; }
 /* =Homepage
 -------------------------------------------------------------- */
 
+div#intro h1 { color: #606060; display: block; font-family: "Copse", Georgia, Times, Serif; font-size: 2.4em; margin-bottom: 1em;}
+
+#intro a.action { background: #F5A623; border: 0; color: #fff; display: block; font-family: helvetica, arial, sans-serif; font-size: 1.8em; font-weight: bold; margin: 0 auto; padding: 0.82em; text-align: center; text-decoration: none; text-transform: uppercase; width: 7em;}
+
+#intro small { display: block; font-size: 1.2em; margin: 2em auto 0; text-align: center;}
+
+/* =Search
+-------------------------------------------------------------- */
+
 div#primary-search { margin: -1.8em auto 6em auto; max-width: 600px;}
 
 div#secondary-search { margin-bottom: 4.8em; }
@@ -236,7 +245,7 @@ div.search { padding: 4.2em 1.8em; text-align: center }
 .search small { display: block; font-size: 1.2em; margin: 2em 0 0; }
 
 
-/* =Search
+/* =Search results
 -------------------------------------------------------------- */
 
 ul#roads { border-bottom: 1px solid #e8e8e8; list-style: none; margin-left: 0; }
@@ -285,7 +294,7 @@ ul.links li { margin: 0 0 0.25em; }
 .collection .image-placeholder img { margin: 3em 0 0 5em; }
 
 @media screen and (max-width: 700px) {
-	div#road-name { float: none; margin: -3em 0 5em; padding: 0; width: auto;;}
+	div#road-name { float: none; margin: -3em 0 5em; padding: 0; width: auto;}
 	#road-name h1 { text-align: center; }
 	#road-name .area { display: inline; margin: auto; }
 	div#collections { float: none; margin: 0 auto; width: 90%; }
