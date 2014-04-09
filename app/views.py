@@ -1,8 +1,9 @@
 from flask import render_template, flash, request, redirect, url_for
-from app import app, helpers, forms, models
+from app import app, helpers, forms
+from app.models import Location
 
 from webhelpers.text import urlify
-from datetime import datetime
+from datetime import datetime, date
 
 
 # Homepage with search form
@@ -18,7 +19,7 @@ def index():
 def search():
 	form = forms.SearchForm()
 	if form.validate_on_submit():
-		roads = models.Location.query.filter(Location.name.ilike('%'+form.road.data+'%')).all()
+		roads = Location.query.filter(Location.name.ilike('%'+form.road.data+'%')).all()
 		return render_template('search.html', form = form, roads = roads)
 	else:
 		flash("Please enter a road name")
@@ -35,25 +36,35 @@ def collections_index():
 @app.route('/collection-times/<road>')
 def collections(road):
 	
-	location = models.Location.query.filter_by(url_name = urlify(road)).first()
+	location = Location.query.filter_by(url_name = urlify(road)).first()
 	collections = location.collections
+
+	if (request.args.get("date")):
+		check_date = datetime.strptime(request.args.get("date"), "%Y-%m-%d").date()
+	else:
+		check_date = date.today()
 
 	cs = []
 	frequencies = { 7 : 'Weekly', 14 : 'Fortnightly' }
 
+	schedule_changed = False
+
 	for collection in collections:
 
-		next, shift = collection.next_collection(datetime.today(), collection.reference_date, collection.frequency)
+		next, next_changed = collection.next_collection(check_date, collection.reference_date, collection.frequency)
+
+		if (next_changed):
+			schedule_changed = True
 
 		cs.append({
 			'name' : collection.type,
 			'frequency' : frequencies[collection.frequency],
 			'next' : next,
-			'shift' : shift
+			'next_changed' : next_changed
 			})
 
 
-	return render_template('collections.html', road=location, collections=cs)
+	return render_template('collections.html', road=location, collections=cs, schedule_changed=schedule_changed)
 
 # Static pages
 @app.route('/about')

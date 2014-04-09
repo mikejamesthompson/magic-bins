@@ -9,6 +9,9 @@
 			{{road.name}}
 			<span class="area">{{road.area}}</span>
 		</h1>
+		{% if schedule_changed %}
+		<p class="schedule-change">Schedule changed for public holidays</p>
+		{% endif %}
 	</div>
 
 	<div id="collections">
@@ -16,7 +19,12 @@
 
 		<div class="collection">
 			<h3>{{collection.name}}</h3>
-			<p class="date">{{collection.next}} {{collection.shift}}</p>
+			{% if collection.next_changed %}
+				<p class="date"><del>{{collection.next}}</del></p>
+				<p class="date">{{collection.next_changed}}</p>
+			{% else %}
+				<p class="date">{{collection.next}}</p>
+			{% endif %}
 			<p class="frequency">Collected {{collection.frequency}}</p>
 			<div class="image-placeholder">
 				<img src="/static/img/{{collection.name}}.png" />

@@ -188,7 +188,7 @@ header { background: #00A98C;}
 
 header h2 { font-size: 2.6em; margin: 0; padding: 1.25em 0; text-shadow: 1px 1px #006D5A; text-transform: uppercase; margin: 0 auto; max-width: 744px; }
 
-header h2 a:link, header h2 a:visited { background: url('/static/img/bin_logo.png') no-repeat left center; color: #fff; padding: 0.75em 0 0.75em 64px; text-decoration: none; }
+header h2 a:link, header h2 a:visited { background: url('/static/img/logo_simplified.png') no-repeat left center; color: #fff; padding: 0.75em 0 0.75em 64px; text-decoration: none; }
 
 div#content { background: #fff; padding-top: 4.8em; }
 
@@ -270,11 +270,13 @@ ul#roads li:hover { background: #FAFAFA; }
 
 div#road-name { float: left; margin-right: 5%; padding-top: 5em; width: 35%; }
 
-#road-name h1 { color: #000; font-size: 3.6em; line-height: 1.2; margin: 0.4em 0.556em 1em; text-align: left; }
+#road-name h1 { color: #000; font-size: 3.6em; line-height: 1.2; margin: 0.4em 0.556em; text-align: left; }
 
 #road-name .area { color: #606060; display: block; margin-top: 0.25em;}
 
 #road-name h1 small { display: block; font-family: "Helvetica Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 0.667em; margin: 0 0 0.5em; }
+
+#road-name p.schedule-change { background: #F5A623; border-radius: 4px; color: #fff; font-size: 1.6em; margin: 1.5em 2.5em 0 1.25em; padding: 8px; text-align: left; }
 
 div#collections { float: left; width: 60%; }
 
@@ -297,7 +299,15 @@ ul.links li { margin: 0 0 0.25em; }
 @media screen and (max-width: 700px) {
 	div#road-name { float: none; margin: -3em 0 5em; padding: 0; width: auto;}
 	#road-name h1 { text-align: center; }
+	#road-name p.schedule-change { margin-left: auto; margin-right: auto; max-width: 20em; text-align: center; }
 	#road-name .area { display: inline; margin: auto; }
 	div#collections { float: none; margin: 0 auto; width: 90%; }
 	div.content { overflow: visible; } 
+}
+
+@media screen and (max-width: 450px) {
+	div.collection { padding-left: 14em; }
+	.collection h3 { margin-top: 0.33em; }
+	.collection .image-placeholder { height: 100px; width: 118px;}
+	.collection .image-placeholder img { margin: 1.2em 0 0 2.5em;}
 }

@@ -3,7 +3,7 @@ from app import db, models, helpers
 from app.models import Collection, location_collections
 from webhelpers.text import urlify
 
-from datetime import datetime
+from datetime import datetime, date
 import hashlib
 import sys
 
@@ -19,52 +19,52 @@ class SevenoaksImporter:
         "type" : "Household Waste", 
         "frequency" : 7,
         "reference_dates" : {
-            'Monday' : datetime(2014,02,10),
-            'Tuesday' : datetime(2014,02,11),
-            'Wednesday' : datetime(2014,02,12),
-            'Thursday' : datetime(2014,02,13),
-            'Friday' : datetime(2014,02,14),
-            'Saturday' : datetime(2014,02,15),
-            'Sunday' : datetime(2014,02,16)}
+            'Monday' : date(2014,02,10),
+            'Tuesday' : date(2014,02,11),
+            'Wednesday' : date(2014,02,12),
+            'Thursday' : date(2014,02,13),
+            'Friday' : date(2014,02,14),
+            'Saturday' : date(2014,02,15),
+            'Sunday' : date(2014,02,16)}
         },
         {
         "name" : "Recycling",
         "type" : "Recycling", 
         "frequency" : 7,
         "reference_dates" : {
-            'Monday' : datetime(2014,02,10),
-            'Tuesday' : datetime(2014,02,11),
-            'Wednesday' : datetime(2014,02,12),
-            'Thursday' : datetime(2014,02,13),
-            'Friday' : datetime(2014,02,14),
-            'Saturday' : datetime(2014,02,15),
-            'Sunday' : datetime(2014,02,16)}
+            'Monday' : date(2014,02,10),
+            'Tuesday' : date(2014,02,11),
+            'Wednesday' : date(2014,02,12),
+            'Thursday' : date(2014,02,13),
+            'Friday' : date(2014,02,14),
+            'Saturday' : date(2014,02,15),
+            'Sunday' : date(2014,02,16)}
         },
         {
         "name" : "Garden Waste 1",
         "type" : "Garden Waste",
         "frequency" : 14,
         "reference_dates" : {
-            'Monday' : datetime(2014,02,03),
-            'Tuesday' : datetime(2014,02,04),
-            'Wednesday' : datetime(2014,02,05),
-            'Thursday' : datetime(2014,02,06),
-            'Friday' : datetime(2014,02,07),
-            'Saturday' : datetime(2014,02,8),
-            'Sunday' : datetime(2014,02,9)}
+            'Monday' : date(2014,02,03),
+            'Tuesday' : date(2014,02,04),
+            'Wednesday' : date(2014,02,05),
+            'Thursday' : date(2014,02,06),
+            'Friday' : date(2014,02,07),
+            'Saturday' : date(2014,02,8),
+            'Sunday' : date(2014,02,9)}
         },
         {
         "name" : "Garden Waste 2",
         "type" : "Garden Waste",
         "frequency" : "14",
         "reference_dates" : {
-            'Monday' : datetime(2014,02,10),
-            'Tuesday' : datetime(2014,02,11),
-            'Wednesday' : datetime(2014,02,12),
-            'Thursday' : datetime(2014,02,13),
-            'Friday' : datetime(2014,02,14),
-            'Saturday' : datetime(2014,02,15),
-            'Sunday' : datetime(2014,02,16)}
+            'Monday' : date(2014,02,10),
+            'Tuesday' : date(2014,02,11),
+            'Wednesday' : date(2014,02,12),
+            'Thursday' : date(2014,02,13),
+            'Friday' : date(2014,02,14),
+            'Saturday' : date(2014,02,15),
+            'Sunday' : date(2014,02,16)}
         }]
 
 
@@ -152,3 +152,7 @@ if __name__ == "__main__":
     importer = SevenoaksImporter('tmp/sevenoaks.csv')
     importer.createCollections()
     importer.importLocations()
+    
+    change = app.models.ScheduleChange(date_from=date(2014,04,18),date_to=date(2014,04,25),shift=1)
+    db.session.add(change)
+    db.session.commit()
