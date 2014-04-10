@@ -1,5 +1,5 @@
 from app import db, helpers
-from datetime import datetime, time, timedelta
+from datetime import datetime, date, time, timedelta
 from sqlalchemy import sql
 
 location_collections = db.Table('location_collections',
@@ -21,22 +21,54 @@ class Collection(db.Model):
         return u'<Collection %r>' % (self.type + " every " + str(self.frequency) + " days, starting on: " + str(self.reference_date))
 
     def next_collection(self, date, reference_date, frequency=7):
+        
         delta = date - reference_date
-        offset = timedelta(days=(frequency - (delta.days % frequency)))
-        next = date + offset
+        days_since = delta.days % frequency
+        days_until = frequency - days_since
 
-        schedule_change = ScheduleChange.query.filter(
+        if (days_since == 0):
+
+            schedule_change = ScheduleChange.query.filter(
                 sql.expression.and_(
-                    next >= ScheduleChange.date_from,
-                    next <= ScheduleChange.date_to
+                    date >= ScheduleChange.date_from,
+                    date <= ScheduleChange.date_to
                     )
                 ).first()
+
+            if(schedule_change):
+                next = date
+
+            else:
+
+                offset = timedelta(days=days_until)
+                next = date + offset
+
+                schedule_change = ScheduleChange.query.filter(
+                    sql.expression.and_(
+                        next >= ScheduleChange.date_from,
+                        next <= ScheduleChange.date_to
+                        )
+                    ).first()
+
+        else:
+
+            offset = timedelta(days=days_until)
+            next = date + offset
+
+            schedule_change = ScheduleChange.query.filter(
+                    sql.expression.and_(
+                        next >= ScheduleChange.date_from,
+                        next <= ScheduleChange.date_to
+                        )
+                    ).first()
         
         if(schedule_change):
             next_changed = next + timedelta(days=schedule_change.shift)
             return next.strftime("%A, %e{S} %B %Y").replace('{S}', helpers.day_suffix(next.day)), next_changed.strftime("%A, %e{S} %B %Y").replace('{S}', helpers.day_suffix(next_changed.day))
         else:
+            next_changed = False
             return next.strftime("%A, %e{S} %B %Y").replace('{S}', helpers.day_suffix(next.day)), False
+
 
 
 class Location(db.Model):
