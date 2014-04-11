@@ -1,27 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if roads %}
 <h2>Select your road from the list below</h2>
 
 <div class="content">
-{% if roads %}
+
     <ul id="roads">
 	{% for road in roads %}
 		<li><a href="/collection-times/{{road.url_name}}">{{road.name}}</a> <span class="area"><a href="/collection-times/{{road.url_name}}">{{road.area}}</a></span></li>
 	{% endfor %}
 	</ul>
-{% endif %}
+
 </div>
 
 <div id="secondary-search" class="search">
 	<div class="content">
 		<form action="/search" method="post" name="search">
-		<h2>Or search again</h2>
+		<h2>Search again</h2>
 		{{form.hidden_tag()}}
 		{{form.road()}}
 		<input type="submit" value="GO" />
 		</form>
 	</div>
 </div>
+
+{% else %}
+
+<div class="content">
+
+	<h2>No search results</h2>
+	<p>We couldn't find any roads matching your search. Try searching again below or <a href="/">let us know</a> if you think your road is missing.</p>
+
+	<div id="secondary-search" class="search">
+		<form action="/search" method="post" name="search">
+		{{form.hidden_tag()}}
+		{{form.road()}}
+		<input type="submit" value="GO" />
+		</form>
+	</div>
+
+</div>
+
+
+{% endif %}
 
 {% endblock %}

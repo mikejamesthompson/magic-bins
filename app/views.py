@@ -8,7 +8,13 @@ from datetime import datetime, date
 @app.errorhandler(500)
 def internal_error(exception):
 	app.logger.exception(exception)
-	return render_template('static.html'), 500
+	return render_template('500.html'), 500
+
+@app.errorhandler(404)
+def not_found_error(exception):
+	app.logger.exception(exception)
+	return render_template('404.html'), 404
+
 
 # Homepage with search form
 @app.route('/', methods = ['GET', 'POST'])
