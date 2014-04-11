@@ -5,6 +5,10 @@ from app.models import Location
 from webhelpers.text import urlify
 from datetime import datetime, date
 
+@app.errorhandler(500)
+def internal_error(exception):
+	app.logger.exception(exception)
+	return render_template('static.html'), 500
 
 # Homepage with search form
 @app.route('/', methods = ['GET', 'POST'])
