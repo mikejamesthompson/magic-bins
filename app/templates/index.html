@@ -2,10 +2,22 @@
 {% block content %}
 
 <div id="primary-search" class="search content">
-	<form action="/search" method="post" name="search">
+	<form action="/search" name="search">
 
-	<label for="road">Check the date of your next bin collection, <br />start by typing in your road name</label>
-	{{form.hidden_tag()}}
+	<label for="road">Check the date of your next bin collection, start by typing in your road name</label>
+	
+	{% with errors = get_flashed_messages(category_filter=["error"]) %}
+	{% if errors %}
+	<div class="message error">
+	  <ul>
+	    {% for msg in errors %}
+	    <li>{{ msg }}</li>
+	    {% endfor %}
+	  </ul>
+	</div>
+	{% endif %}
+	{% endwith %}
+
 	{{form.road(placeholder="e.g. London Road")}}
 	<input type="submit" value="GO" />
 	<small><a href="/contact">Can't find your road?</a></small>

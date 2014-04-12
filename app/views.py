@@ -20,20 +20,25 @@ def not_found_error(exception):
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
-	form = forms.SearchForm()
+	form = forms.SearchForm(csrf_enabled=False)
 	return render_template("index.html", form = form)
 
 
 # Search page for people devices/browsers without javascript
-@app.route('/search', methods = ['GET', 'POST'])
+@app.route('/search')
 def search():
-	form = forms.SearchForm()
-	if form.validate_on_submit():
-		roads = Location.query.filter(Location.name.ilike('%'+form.road.data+'%')).all()
-		return render_template('search.html', form = form, roads = roads)
+	form = forms.SearchForm(request.args,csrf_enabled=False)
+	if form.validate():
+		search_string = form.data.get("road")
+		roads = Location.query.filter(Location.name.ilike('%'+search_string+'%')).all()
+		return render_template('search.html', 
+			form = form,
+			roads = roads,
+			title = "Finding bin collections for roads matching " + search_string,
+			body="search")
 	else:
-		flash("Please enter a road name")
-		return render_template('search.html', form = form)
+		flash(u'Please enter a road name', 'error')
+		return redirect(url_for('index'))
 
 
 # Nothing to see here
@@ -74,7 +79,12 @@ def collections(road):
 			})
 
 
-	return render_template('collections.html', road=location, collections=cs, schedule_changed=schedule_changed)
+	return render_template('collections.html', 
+		road=location,
+		collections=cs,
+		schedule_changed=schedule_changed,
+		title="Bin collections for " + location.name + ", " + location.area,
+		body="collections")
 
 # Static pages
 @app.route('/about')
