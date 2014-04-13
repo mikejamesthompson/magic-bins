@@ -286,7 +286,7 @@ div#road-name { float: left; margin-right: 5%; padding-top: 5em; width: 35%; }
 
 #road-name h1 small { display: block; font-family: "Helvetica Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 0.667em; margin: 0 0 0.5em; }
 
-#road-name p.schedule-change { background: #F5A623; border-radius: 4px; color: #fff; font-size: 1.6em; margin: 1.5em 2.5em 0 1.25em; padding: 8px; text-align: left; }
+#road-name p.schedule-change { background: #F5A623; border-radius: 4px; color: #fff; font-size: 1.6em; margin: 1.5em 1.75em 0 1.25em; padding: 8px; text-align: left; }
 
 div#collections { float: left; width: 60%; }
 
