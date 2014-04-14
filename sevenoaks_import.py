@@ -12,8 +12,13 @@ class SevenoaksImporter:
     def __init__(self, filename):
         self.source = filename
 
+    # The value of the key here specifies the column number that the collection day 
+    # is stored in in the CSV file (with numbering starting at 0)
     types = { 2 : "Household Waste", 3 : "Recycling", 4 : "Garden Waste"}
 
+    # Dictionaries that define all possible collections in Sevenoaks DC with reference dates
+    # representing when they have definitely happened in the past, used in calculating 
+    # when the next collection is
     collections = [{
         "name" : "Household Waste",
         "type" : "Household Waste", 
