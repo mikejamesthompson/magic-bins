@@ -90,4 +90,5 @@ def collections(road):
 @app.route('/about')
 @app.route('/contact')
 def static_page():
-	return render_template("static.html")
+	
+	return render_template("static.html", body="static")

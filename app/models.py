@@ -21,7 +21,7 @@ class Collection(db.Model):
         return u'<Collection %r>' % (self.type + " every " + str(self.frequency) + " days, starting on: " + str(self.reference_date))
 
     def next_collection(self, date, reference_date, frequency=7):
-        app.logger.info('Calculating next collection for: ' + str(date) +', referencing ' + str(reference_date))
+        # app.logger.info('Calculating next collection for: ' + str(date) +', referencing ' + str(reference_date))
         delta = date - reference_date
         days_since = delta.days % frequency
         days_until = frequency - days_since
